@@ -22,8 +22,9 @@ Score suspicious behavior. Log, display, and take action against them.
 ## Building / Installation
 
 #### Pre-compiled 
+<a href="https://github.com/aholdeno/BeaconHunter/releases">Release</a>.
 
-`git clone` and go to `Release` folder.
+or `git clone` and go to `Release` folder.
 
 #### .NET Framework version 
 
