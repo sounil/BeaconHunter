@@ -1,28 +1,25 @@
 # BeaconHunter
 
-Behaviour based monitoring and hunting tool built in C# tool leveraging ETW tracing. Blue teamers can use this tool to detect and respond to potential beacons. Red teamers can use this tool to help improve their opsec and discover new processes that behave like beacons.
+Behaviour based monitoring and hunting tool built in C# tool leveraging ETW tracing. Blue teamers can use this tool to detect and respond to potential Cobalt Strike beacons. Red teamers can use this tool to discover new processes that behave like beacons to improve their opsec.
 
 ***Author***: Andrew Oliveau (@AndrewOliveau)
 
-![alt text](https://github.com/3lp4tr0n/BeaconHunter/blob/main/screenshots/beacon_network_score.PNG)
+![alt text](https://github.com/aholdeno/BeaconHunter/blob/main/screenshots/beacon_network_score.PNG)
 
 ### TL;DR
-Beacon implants injected in a benign process live in a thread with a `Wait:DelayExecution` state (probably related to Cobalt Strike's `sleep`).
+Beacon implants injected in a benign process live in a thread with a `Wait:DelayExecution` state (probably related to Cobalt Strike's `sleep`). Find all processes that contain a thread in a `Wait:DelayExecution` state. Then leverage ETW tracing to specifically monitor suspicious thread's activity:
 
-Find all processes that contain a thread in a `Wait:DelayExecution` state. 
-
-Leverage ETW tracing to specifically monitor suspicious thread's activity: 
-  - HTTPS network callbacks
+  - HTTPS callback frequency
   - DNS queries
-  - file (`cd`,`ls`,`upload`,`rm`)
-  - process termination (`kill`)
-  - shell commands (`run`,`execute`)
-  - registry (TODO)
-  - wmi (TODO)
+  - File system (`cd`,`ls`,`upload`,`rm`)
+  - Process termination (`kill`)
+  - Shell commands (`run`,`execute`)
+  - Registry (TODO)
+  - WMI (TODO)
 
 Score suspicious behavior. Log, display, and take action against them.
   
-### Building / Installation
+## Building / Installation
 
 #### Pre-compiled 
 
